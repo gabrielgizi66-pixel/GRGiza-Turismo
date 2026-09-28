@@ -1,8 +1,18 @@
-# Vaguinha
+# Projeto: GRGiza Turismo
+## Faculdade de Ampére - FAMPER
+## Aluno: Gabriel Robe Giza
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+## Descrição:
+Este projeto foi desenvolvido a partir do [Angular CLI](https://github.com/angular/angular-cli) versão 22.1.7. para fins educacionais de trabalho sobre 'aplicação Web com Angular'.
 
-## Development server
+## Funcionalidades:
+-
+-
+-
+-
+-
+-
+-
 
 To start a local development server, run:
 
