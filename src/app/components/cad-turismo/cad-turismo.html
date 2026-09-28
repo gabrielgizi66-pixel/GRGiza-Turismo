@@ -1,0 +1,95 @@
+<article class="card-turismo">
+  <div class="topo-card">
+    <img class="logo-empresa" [src]="vagaturismo.imagem" [alt]="'Logotipo da empresa ' + vagaturismo.empresa">
+
+    <div class="identificacao">
+      <p class="empresa">{{ vagaturismo.empresa }}</p>
+      <h3>{{ vagaturismo.lugar }}</h3>
+      <p class="instrutorresponsavel">
+        {{ vagaturismo.instrutorresponsavel }}
+      </p>
+    </div>
+
+    <button class="botao-favorito" [class.favorita]="favorito" [title]="favorito
+      ? 'Remover dos favoritos'
+      : 'Adicionar aos favoritos'" (click)="alterarfavorito()">
+      @if (favorito) {
+      🌟
+      } @else {
+      ⭐
+      }
+    </button>
+  </div>
+  <div class="etiquetas">
+    @if (vagaturismo.disponivel){
+    <span class="situacao aberta">Inscrições aberta</span>
+    } @else {
+    <span class="situacao fechada">Inscrições fechadas</span>
+    }
+
+    @if(vagaturismo.poucasvagas){
+    <span class="situacao urgente">Poucas vagas restantes para hoje</span>
+    }
+
+    @if(favorito){
+    <span class="situacao favorito">Favorita</span>
+    }
+  </div>
+  <div class="informacoes">
+    <div class="informacao">
+      <span class="rotulo">Valor</span>
+      @if(vagaturismo.valor > 0){
+      <strong>R$ {{ vagaturismo.valor.toLocaleString('pt-BR') }}</strong>
+      }@else {
+      <strong>Valor inbox</strong>
+      }
+    </div>
+    <div class="informacao">
+      <span class="rotulo">Horário disponível</span>
+      <strong>{{ vagaturismo.horariodisponivel }}</strong>
+    </div>
+  </div>
+  <p class="descricao">
+    {{ vagaturismo.descricao }}
+  </p>
+  <button class="botao-detalhes" (click)="alterardetalhes()">
+    {{ detalhesVisiveis ? 'Ocultar informações' : 'Mostrar informações' }}
+
+    <!-- @if (detalhesVisiveis) {
+    Ocultar informações
+    } @else {
+    Mostrar informações
+    } -->
+  </button>
+
+  @if (detalhesVisiveis) {
+  <section class="informacoes">
+    <h4>Informações do lugar:</h4>
+    <ul>
+      @for (informacao of vagaturismo.informacoes; track $index) {
+      <li>{{ informacao }}</li>
+      } @empty {
+      <li>Nenhuma informação adicionada.</li>
+      }
+    </ul>
+  </section>
+  }
+
+  <div class="area-inscricao">
+    <button class="botao-inscrever" [disabled]="!vagaturismo.disponivel || inscricaoEnviada" (click)="inscrever()">
+      @if (!vagaturismo.disponivel){
+      Inscrição indisponível
+      } @else if (inscricaoEnviada){
+      Inscrição enviada
+      } @else {
+      inscrever-se
+      }
+    </button>
+  </div>
+
+  @if (inscricaoEnviada){
+  <p class="mensagem-sucesso">
+    Sua candidatura para ir ao {{ vagaturismo.lugar }} foi enviada com sucesso!
+  </p>
+  }
+</article>

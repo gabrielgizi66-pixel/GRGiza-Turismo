@@ -1,0 +1,58 @@
+<app-cabecalho></app-cabecalho>
+
+<main id="inicio">
+    <section class="apresentacao">
+        <div class="conteudo-apresentacao">
+            <div>
+                <span class="destaque">
+                    Sua aventura começa aqui!
+                </span>
+                <h2>Encontre o lugar que combina com você</h2>
+                <p>Ache o turismo que define você</p>
+            </div>
+          <div class="painel-usuario">
+    @if (usuarioLogado){
+        <p class="mensagem-logado">Olá, <strong>{{ nomeUsuario }}</strong></p>
+        <p>Você pode consultar e favoritar as vagas</p>
+        <button class="botao-login botao-sair" (click)="alterarLogin('')">Sair da conta</button>
+    } @else {
+        <p class="mensagem-deslogado">Vc ainda não está conectado.</p>
+        <p>Entre para acompanhar suas oportunidades.</p>
+
+        <input type="text" placeholder="Digite seu nome" #nomeInput class="campo-nome" />
+
+        <button class="botao-login" (click)="alterarLogin(nomeInput.value)">Entrar</button>
+    }
+</div>
+        </div>
+    </section>
+    <section class="secap-vagasturismo" id="vagasturismo">
+        <div class="titulos-secao">
+            <div>
+                <span class="destaque">OPORTUNIDADES</span>
+                <h2>{{ titulo}}</h2>
+                <p>{{ subtitulo}}</p>
+            </div>
+            <div class="quantidade-vagasturismo">
+                <strong>{{ vagasturismo.length}}</strong>
+                @if (vagasturismo.length === 1) {
+                    <span>vaga cadastrada</span>}
+                    @else {<span> vagas cadastradas</span>
+                    }
+            </div>
+      </div>
+        <div class="grade-vagasturismo">
+            @for(vaga of vagasturismo; track vaga.id){
+<app-cad-turismo [vagaturismo]="vaga"></app-cad-turismo>
+            }@empty {
+                <div class="sem-vagasturismo">
+                    <span>0</span>
+                    <h3>Nenhuma vaga encontrada.</h3>
+                    <p>Não tem vaga cadastrada.</p>
+                </div>
+            }
+        </div>
+    </section>
+</main>
+
+<app-rodape></app-rodape>
