@@ -21,7 +21,7 @@ Este projeto foi desenvolvido a partir do [Angular CLI](https://github.com/angul
 
 ## Como executar
 1. Baixe ou clone o repositório.
-2. Instale o [Angular CLI](https://github.com/angular/angular-cli) e o [nodejs](https://nodejs.org/pt-br/download)
+2. Instale o [nodejs](https://nodejs.org/pt-br/download)
 3. Entre na pasta origem dos arquivos;
 4. Clique por cima do painel de navegação (onde mostra a estrutura em ordem de todos os arquivos) e digita 'cmd';
 5. Abrindo o prompt de comando (recomendado estar no modo administrador),faça os passos a seguir:
