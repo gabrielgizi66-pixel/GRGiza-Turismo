@@ -29,5 +29,6 @@ Este projeto foi desenvolvido a partir do [Angular CLI](https://github.com/angul
    *Digita 'ng serve' para abrir um link host*
 E acesse ele (normalmente o link estará descrito como 'http://localhost:4200/')
 
-##Vídeo:
+##Link do vídeo:
+[GRGiza Turismo](https://youtu.be/kmgbZqjofQ4)
    
